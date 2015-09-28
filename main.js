@@ -70,6 +70,16 @@ var mainController = function($scope){
           ],
         }
 
+    $scope.textToCopy = "Hello Boulder!";
+
+    $scope.success = function () {
+        console.log('Copied!');
+    };
+
+    $scope.fail = function (err) {
+        console.error('Error!', err);
+    };
+
     // autocomplete values
     var tags = [
           { "text": "JavaScript" },
@@ -139,5 +149,19 @@ var mainController = function($scope){
 
 }
 
-angular.module('app', [])
+angular.module('app', ['angular-clipboard'])
     .controller('mainController', ['$scope', mainController])
+
+// var clipApp = angular.module('clipApp', ['angular-clipboard']);
+
+// clipApp.controller('clipCtrl', ['$scope', function ($scope) {
+//     $scope.textToCopy = "I can copy by clicking!\nAnd also new lines!";
+
+//     $scope.success = function () {
+//         console.log('Copied!');
+//     };
+
+//     $scope.fail = function (err) {
+//         console.error('Error!', err);
+//     };
+// }]);

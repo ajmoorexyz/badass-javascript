@@ -5,7 +5,7 @@
         <title>Untitled</title>
         <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="main.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular.js"></script>
     </head>
     <body ng-controller="mainController">
         <!-- <h1>Hello World!</h1> -->
@@ -95,11 +95,12 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="snippet-preview">{{script.snippet}}</div>
-                    <div class="row sharing">
+                    <!-- <div class="snippet-preview" ng-model='textToCopy'>{{script.snippet}}</div> -->
+                    <div class="snippet-preview" ng-model='textToCopy'>{{textToCopy}}</div>
+                    <div  class="row sharing">
                         <div class="col-lg-2"><span class='glyphicon glyphicon-envelope envelope'></span></div>
                         <div class="col-lg-2"><span class='glyphicon glyphicon-bookmark bookmark'></span></div>
-                        <div class="col-lg-2"><span class='glyphicon glyphicon-download download'></span></div>
+                        <div class="col-lg-2"><span clipboard text="textToCopy" on-copied="success()" on-error="fail(err)" class='glyphicon glyphicon-download download'></span></div>
 
 
 
@@ -157,5 +158,7 @@
         
 
         <script src="main.js"></script>
+        <script src='angular-clipboard.js'></script>
+
     </body>
 </html>
