@@ -12,8 +12,8 @@ var mainController = function($scope){
 
     $scope.viewCollection = function() {
     	$scope.collectionView = !$scope.collectionView
-    	$scope.submissionView = !$scope.submissionView
-    	$scope.defaultDisplay = !$scope.defaultDisplay
+    	$scope.submissionView = true
+    	$scope.defaultDisplay = true
     }
 
     $scope.exitFunction = function() {
@@ -25,12 +25,12 @@ var mainController = function($scope){
 
     $scope.submissionFunction =function() {
         // $scope.splash = !$scope.splash
-        $scope.submissionView = !$scope.submissionView
-        $scope.collectionView = !$scope.collectionView
-        $scope.defaultDisplay = !$scope.defaultDisplay
+        $scope.submissionView = !$scope.submissionV
+        $scope.collectionView = true
+        $scope.defaultDisplay = true
     }
-
-    $scope.javascripts = []
+    $scope.javascriptsCollection
+    $scope.userCollection = []
 
     // $scope.submissionFunction =function() {
     //     $scope.splash = !$scope.splash
@@ -38,39 +38,51 @@ var mainController = function($scope){
     // }
     // addSnippet pushes newSnippet Objects to javascripts
     $scope.addSnippet = function(e) {
-    	e.preventDefault()
-        console.log('addSnippet is firing')
-    	$scope.javascripts.push($scope.newSnippet)
-    	console.log($scope.javascripts)
-    	
+      e.preventDefault()
+      console.log('addSnippet is firing')
+      $scope.javascriptsCollectio.push($scope.newSnippet)
+      console.log($scope.javascriptsCollection)
+      
         // logic to prevent empty objects from being added to javascripts
         if ($scope.newSnippet.snippet != '' && $scope.newSnippet.functionality != '') {
-    		$scope.javascripts.push($scope.newSnippet);
-    		$scope.newSnippet = ''; 
-    		$scope.splash = !$scope.splash
-            $scope.submissionView = !$scope.submissionView
-    	};
+        $scope.javascriptsCollection.push($scope.newSnippet);
+        $scope.newSnippet = ''; 
+        // $scope.splash = !$scope.splash
+        $scope.submissionView = !$scope.submissionView
+        $scope.defaultDisplay = !$scope.defaultDisplay
+      };
     } 
 
 
     // Data model | Schema
     // $scope.newScript = {
-    // 	snippet       : string
-    // 	functionality : string
+    //  snippet       : string
+    //  functionality : string
     //  tags          : array of objects
     // }
 
     $scope.newSnippet = {
-    	snippet         : '',
-    	functionality   : '',
+      snippet         : '',
+      functionality   : '',
         tags            : [
             { text: 'JavaScript' },
             { text: 'OOP' },
             { text: 'Functional Programming' },
           ],
         }
-
+    $scope.toggle = false
     $scope.textToCopy = "Hello Boulder!";
+
+    $scope.previewSnippet = function(script) {
+      console.log(script)
+      $scope.activeSnippet = true
+      $scope.textToCopy = script
+    }
+
+    $scope.addToUserCollection = function(script) {
+      $scope.userCollection.push(script)
+      console.log($scope.userCollection)
+    }
 
     $scope.success = function () {
         console.log('Copied!');

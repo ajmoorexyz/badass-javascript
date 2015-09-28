@@ -56,7 +56,7 @@
                     <div class="col-lg-5">
                         <input type="text" placeholder='description' ng-model='newSnippet.functionality' value="{{newSnippet.functionality}}">
                     </div>
-                    <tags-input ng-model="newSnippet.tags" add-on-paste="true">
+                    <tags-input ng-model="newSnippet.tags" add-on-paste="false">
                         <auto-complete source="loadTags($query)"></auto-complete>
                     </tags-input>
                     <!-- <p>Model: {{newSnippet.tags}}</p> -->
@@ -83,24 +83,25 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-10 input-group changethisone">
-                            <input type="text"  class="form-control" placeholder="This is styled with the .changethisone css class"/>
+                            <input type="text"  class="form-control" placeholder="search the site"/>
                             <span class="input-group-addon">
                                 <i class="glyphicon glyphicon-search"></i>
                             </span>
                             
                         </div>
                         <div ng-repeat="script in defaultJavaScripts">
-                                <li>{{script.functionality}}</li>
-                            </div>
+                                <!-- <li><input type="radio" name="somethign" value="1" ng-model="checkboxSelection"/> {{script.functionality}}</li> -->
+                                <li><div class="selectBox" ng-click='previewSnippet(script); toggle = !toggle' ng-class="{'activeSnippet' : toggle}" ng-model="checkboxSelection"></div> {{script.functionality}}</li>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <!-- <div class="snippet-preview" ng-model='textToCopy'>{{script.snippet}}</div> -->
-                    <div class="snippet-preview" ng-model='textToCopy'>{{textToCopy}}</div>
+                    <div class="snippet-preview" ng-model='textToCopy.snippet'>{{textToCopy.snippet}}</div>
                     <div  class="row sharing">
                         <div class="col-lg-2"><span class='glyphicon glyphicon-envelope envelope'></span></div>
-                        <div class="col-lg-2"><span class='glyphicon glyphicon-bookmark bookmark'></span></div>
-                        <div class="col-lg-2"><span clipboard text="textToCopy" on-copied="success()" on-error="fail(err)" class='glyphicon glyphicon-download download'></span></div>
+                        <div class="col-lg-2"><span class='glyphicon glyphicon-bookmark bookmark' ng-click="addToUserCollection(textToCopy)"></span></div>
+                        <div class="col-lg-2"><span clipboard text="textToCopy.snippet" on-copied="success()" on-error="fail(err)" class='glyphicon glyphicon-download download'></span></div>
 
 
 
@@ -118,18 +119,23 @@
                         <div class="block col-lg-12">block</div>
                     </div>
                     <div class="row col-lg-offset-1 col-lg-10  input-group changethisone">
-                        <input type="text"  class="form-control" placeholder="This is styled with the .changethisone css class"/>
+                        <input type="text"  class="form-control" placeholder="search your vault"/>
                         <span class="input-group-addon">
                             <i class="glyphicon glyphicon-search"></i>
                         </span>
                     </div>
+                       <div ng-repeat="script in userCollection">
+                               <!-- <li><input type="radio" name="somethign" value="1" ng-model="checkboxSelection"/> {{script.functionality}}</li> -->
+                               <li><div class="selectBox" ng-click='previewSnippet(script); toggle = !toggle' ng-class="{'activeSnippet' : toggle}" ng-model="checkboxSelection"></div> {{script.functionality}}</li>
+                       </div> 
             
                 </div>
                 <div class="col-lg-6">
-                    <div class="snippet-preview">Dashboard</div>
+                    <div class="snippet-preview">Dashboard
+                    </div>
                     <div class="row">
                         <div class="action col-lg-2 col-lg-offset-3"><span class='glyphicon glyphicon-envelope envelope'></span></div>
-                        <div class="action col-lg-2 col-lg-offset-2"><span class='glyphicon glyphicon-bookmark bookmark'></span></div>
+                        <div class="action col-lg-2 col-lg-offset-2"><span class='glyphicon glyphicon-download download'></span></div>
 
 
                     </div>

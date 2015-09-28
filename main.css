@@ -40,46 +40,7 @@ li {
 	left: 0px;
 	top: 0px;
 	background: rgba(18, 21, 24, 0.9);
-/* 	display: none; */
 }
-
-/*.collection, .submitForm {
-	position: fixed;
-	right: 0px;
-	bottom: 0px;
-	left: 0px;
-	top: 0px;
-	background: rgba(18, 21, 24, 0.9);*/
-/* 	add a boolean value to control hide/show */
-	/*display: none;*/
-/*}*/
-
-.submissionContent {
-/* 	transform: translateY(-100%); */
-	background-color: white;
-	width: 75%;
-	margin: 0px 0 0 10%;
-/* 	z-index: 1; */
-	height: 75vh;
-	position: fixed;
-	top: 150px;
-	
-}
-.collectionContent {
-/* 	border-radius: 6px; */
-	position: fixed;
-	top: 15%;
-	right: 20%;
-/* 	left: 10%; */
-	height: ;
-/* 	transform: translateY(-50%); */
-/* 	background-color: green; */
-	padding: 15px;
-	width: 80%;
-	margin: 0 auto;
-}
-
-
 
 .preview {
 	height: 150px;
@@ -87,9 +48,17 @@ li {
 }
 
 
-
-
-
+.submissionContent {
+	background-color: white;
+	width: 75%;
+	margin: 0px 0 0 10%;
+	height: 75vh;
+	position: fixed;
+	top: 150px;
+	padding-top: 50px;
+	
+}
+/*submit button in submission view*/
 button {
 	border: none;
 	background-color: greenyellow;
@@ -97,21 +66,34 @@ button {
 	font-size: 24px;
 }
 
-
-
-/*.global {
-	display: none;
-}*/ 
-
-
+.collectionContent {
+	background-color: white;
+	position: fixed;
+	top: 15%;
+	left: 5%;
+	padding: 15px;
+	width: 80%;
+	margin: 0 auto;
+}
+ 
+/*main functionality*/
 .handy {
 	font-size: 80px;
 	position: fixed;
 	bottom: 0px;
 	right: 25px;
-	/*top: 50vh;*/
 	text-align: center;
-/* 	z-index: 1; */
+}
+
+/*ICONS*/
+
+.selectBox {
+	width: 20px;
+	height: 20px;
+	background-color: beige;
+	border: 2px solid blue;
+	margin-right: 10px;
+	float: left;
 }
 
 .glyphicon {
@@ -162,16 +144,19 @@ button {
 	color: red;
 }
 
-/* SEARCH */
+.plus {
+	color: green;
+}
+
+.activeSnippet {
+	background-color: blue;
+}
+
 
 /* Latest compiled and minified CSS included as External Resource*/
 
 /* Optional theme */
 @import url('http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css');
-
-body {
-    /*margin: 10px;*/
-}
 
 .changethisone span{
     background-color: #FFF;
@@ -179,8 +164,4 @@ body {
 
 .changethisone input{
     border-right-style:none;
-}
-
-.plus {
-	color: green;
 }
