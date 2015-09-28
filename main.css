@@ -1,0 +1,186 @@
+* {
+	font-family: Helvetica;
+}
+
+/*.render {
+ 	background-color: black; 
+	height: 100vh;
+	color: white;
+}*/
+
+li {
+	list-style-type: none;
+	margin-top: 15px;
+	margin-left: 10px;
+}
+
+.block {
+	opacity: 0;
+	height: 100px;
+
+}
+
+
+
+.snippet-preview {
+	text-align: center;
+	background-color: white;
+	border: 1px solid black;
+	color: black;
+	width: 80%;
+	margin: 100px 0 0 10%;
+	height: 50vh;
+}
+
+/*used for submissionView and collectionView*/
+  .lightbox {
+	position: fixed;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	top: 0px;
+	background: rgba(18, 21, 24, 0.9);
+/* 	display: none; */
+}
+
+/*.collection, .submitForm {
+	position: fixed;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	top: 0px;
+	background: rgba(18, 21, 24, 0.9);*/
+/* 	add a boolean value to control hide/show */
+	/*display: none;*/
+/*}*/
+
+.submissionContent {
+/* 	transform: translateY(-100%); */
+	background-color: white;
+	width: 75%;
+	margin: 0px 0 0 10%;
+/* 	z-index: 1; */
+	height: 75vh;
+	position: fixed;
+	top: 150px;
+	
+}
+.collectionContent {
+/* 	border-radius: 6px; */
+	position: fixed;
+	top: 15%;
+	right: 20%;
+/* 	left: 10%; */
+	height: ;
+/* 	transform: translateY(-50%); */
+/* 	background-color: green; */
+	padding: 15px;
+	width: 80%;
+	margin: 0 auto;
+}
+
+
+
+.preview {
+	height: 150px;
+	border: 1px solid black;
+}
+
+
+
+
+
+button {
+	border: none;
+	background-color: greenyellow;
+	padding: 10px;
+	font-size: 24px;
+}
+
+
+
+/*.global {
+	display: none;
+}*/ 
+
+
+.handy {
+	font-size: 80px;
+	position: fixed;
+	bottom: 0px;
+	right: 25px;
+	/*top: 50vh;*/
+	text-align: center;
+/* 	z-index: 1; */
+}
+
+.glyphicon {
+	color: hotpink;
+}
+
+.glyphicon-remove {
+	color: red;
+	font-size: 50px;
+	position: absolute;
+	right: -25px;
+	top: -25px;
+}
+
+.glyphicon-search {
+	color: black;
+}
+
+.logo {
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	width: 120px;
+	height: 120px;
+	z-index: 1;
+}
+.sharing {
+	font-size: 50px;
+	margin-left: 175px;
+	padding-top: 20px;
+}
+
+.download {
+	color: black;
+}
+.action {
+	text-align: center;
+	font-size: 50px;
+	position: relative;
+	bottom: 60px;
+}
+
+.bookmark {
+	color: blue;
+}
+
+.envelope {
+	color: red;
+}
+
+/* SEARCH */
+
+/* Latest compiled and minified CSS included as External Resource*/
+
+/* Optional theme */
+@import url('http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css');
+
+body {
+    /*margin: 10px;*/
+}
+
+.changethisone span{
+    background-color: #FFF;
+}
+
+.changethisone input{
+    border-right-style:none;
+}
+
+.plus {
+	color: green;
+}
