@@ -5,7 +5,14 @@
         <title>Untitled</title>
         <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="main.css">
+        <link rel="stylesheet" href="http://mbenford.github.io/ngTagsInput/css/ng-tags-input.min.css" />
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular.js"></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/ng-tags-input/3.0.0/ng-tags-input.min.js'></script>
+        <script src="https://code.angularjs.org/1.2.28/angular-resource.min.js"></script>
+       <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/ng-tags-input/3.0.0/ng-tags-input.min.js'></script> -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/zeroclipboard/2.1.6/ZeroClipboard.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ng-clip/0.2.6/ng-clip.min.js"></script>
     </head>
     <body ng-controller="mainController">
         <!-- <h1>Hello World!</h1> -->
@@ -43,18 +50,18 @@
             <div><span ng-click='exitFunction()' class='glyphicon glyphicon-remove'></span></div>
             <form>
                 <div class="row">
-                    <div class="col-lg-5">
+                    <div class="left col-lg-6">
                         <textarea class="preview" name="snippet" id="snippet" cols="30" rows="10" ng-model='newSnippet.snippet' placeholder='snippet'></textarea>
                     </div>
-                    <div class="preview col-lg-5 col-lg-offset-1">
+                    <div class="right preview col-lg-6">
                         <p>{{newSnippet.snippet}}</p>
 
                     </div>
 
                 </div>
                 <div class="row">
-                    <div class="col-lg-5">
-                        <input type="text" placeholder='description' ng-model='newSnippet.functionality' value="{{newSnippet.functionality}}">
+                    <div class="col-lg-12">
+                        <input class="description" type="text" placeholder='description' ng-model='newSnippet.functionality' value="{{newSnippet.functionality}}">
                     </div>
                     <tags-input ng-model="newSnippet.tags" add-on-paste="false">
                         <auto-complete source="loadTags($query)"></auto-complete>

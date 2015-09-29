@@ -1,4 +1,4 @@
-var mainController = function($scope){
+var mainController = function($scope, $http){
     console.log('Hello Boulder!')
     
     $scope.submissionView = true  //ng-hide
@@ -106,6 +106,9 @@ var mainController = function($scope){
           { "text": "function" },
         ]
 
+    $scope.loadTags = function(query) {
+      return tags
+    }
     $scope.defaultJavaScripts = [
   {
     snippet       : "console.log('jim')",
@@ -161,8 +164,8 @@ var mainController = function($scope){
 
 }
 
-angular.module('app', ['angular-clipboard'])
-    .controller('mainController', ['$scope', mainController])
+angular.module('app', ['angular-clipboard', 'ngTagsInput'])
+    .controller('mainController', ['$scope', '$http', mainController])
 
 // var clipApp = angular.module('clipApp', ['angular-clipboard']);
 
