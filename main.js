@@ -11,7 +11,7 @@ var mainController = function($scope){
     // $scope.submission = true
 
     $scope.viewCollection = function() {
-    	$scope.collectionView = !$scope.collectionView
+    	$scope.collectionView = false
     	$scope.submissionView = true
     	$scope.defaultDisplay = true
     }
@@ -25,7 +25,7 @@ var mainController = function($scope){
 
     $scope.submissionFunction =function() {
         // $scope.splash = !$scope.splash
-        $scope.submissionView = !$scope.submissionV
+        $scope.submissionView = false
         $scope.collectionView = true
         $scope.defaultDisplay = true
     }
