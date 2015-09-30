@@ -1,4 +1,4 @@
-var mainController = function($scope, $http){
+var mainController = function($scope, $http, $localStorage){
     console.log('Hello Boulder!')
     
     $scope.submissionView = true  //ng-hide
@@ -38,7 +38,7 @@ var mainController = function($scope, $http){
               ],
             }
     }
-    $scope.javascriptsCollection = []
+    // $scope.javascriptsCollection = []
     $scope.userCollection = []
 
     // $scope.submissionFunction =function() {
@@ -49,17 +49,23 @@ var mainController = function($scope, $http){
     $scope.addSnippet = function(e) {
       e.preventDefault()
       console.log('addSnippet is firing')
-      $scope.javascriptsCollection.push($scope.newSnippet)
-      console.log($scope.javascriptsCollection)
+      // $scope.javascriptsCollection.push($scope.newSnippet)
+      // $scope.defaultJavaScripts.push($scope.newSnippet)
+      // $scope.javascriptsCollection = getItem('javascripts')
+
+      // console.log($scope.javascriptsCollection)
       
         // logic to prevent empty objects from being added to javascripts
         if ($scope.newSnippet.snippet != '' && $scope.newSnippet.functionality != '') {
-        $scope.javascriptsCollection.push($scope.newSnippet);
+        $localStorage.o.push($scope.newSnippet);
         $scope.newSnippet = ''; 
         // $scope.splash = !$scope.splash
         $scope.submissionView = !$scope.submissionView
         $scope.defaultDisplay = !$scope.defaultDisplay
       };
+      // setItem('javascripts', $scope.javascriptsCollection)
+    // $scope.javascriptsCollection = getItem('javascripts')
+
     } 
 
 
@@ -123,35 +129,36 @@ var mainController = function($scope, $http){
     $scope.loadTags = function(query) {
       return tags
     }
-    $scope.defaultJavaScripts = [
-  {
-    snippet       : "console.log('jim')",
-    functionality : "logs the string literal 'jim'.",
-    tags          : [{ text: 'JavaScript' },
-            { text: 'OOP' },
-            { text: 'Functional Programming' },]
-  },
-  {
-    snippet       : "var name = 'Alex'",
-    functionality : "assigns the variable name a value of 'Alex'",
-    tags          : [{ text: 'JavaScript' },
-            { text: 'OOP' },
-            { text: 'Functional Programming' },]
-  },
-  {
-    snippet       : "console.log(Math.floor(Math.random() * 10))",
-    functionality : "returns a random number between 1 and 10",
-    tags          : [{ text: 'JavaScript' },
-            { text: 'OOP' },
-            { text: 'Functional Programming' },]
-  },
-  {
-    snippet       : "console.log(this)",
-    functionality : "logs the value of this in it's current state.",
-    tags          : [{ text: 'JavaScript' },
-            { text: 'OOP' },
-            { text: 'Functional Programming' },]
-  },
+    // $scope.defaultJavaScripts
+     $scope.defaultJavaScripts = [
+        {
+          snippet       : "console.log('jim')",
+          functionality : "logs the string literal 'jim'.",
+          tags          : [{ text: 'JavaScript' },
+                           { text: 'OOP' },
+                           { text: 'Functional Programming' },]
+        },
+        {
+          snippet       : "var name = 'Alex'",
+          functionality : "assigns the variable name a value of 'Alex'",
+          tags          : [{ text: 'JavaScript' },
+                           { text: 'OOP' },
+                           { text: 'Functional Programming' },]
+        },
+        {
+          snippet       : "console.log(Math.floor(Math.random() * 10))",
+          functionality : "returns a random number between 1 and 10",
+          tags          : [{ text: 'JavaScript' },
+                           { text: 'OOP' },
+                           { text: 'Functional Programming' },]
+        },
+        {
+          snippet       : "console.log(this)",
+          functionality : "logs the value of this in it's current state.",
+          tags          : [{ text: 'JavaScript' },
+                           { text: 'OOP' },
+                           { text: 'Functional Programming' },]
+        },
   // {
   //   snippet       : "var nameless = function(a) { console.log(arguments); return a}",
   //   functionality : "example of logging arguments passed to a function",
@@ -183,11 +190,16 @@ var mainController = function($scope, $http){
   //   tags          : []
   // },
 ]
-
+$scope.$storage = $localStorage.$default({
+  o : $scope.defaultJavaScripts
+})
+// setItem('javascripts', $scope.defaultJavaScripts)
+// $scope.javascriptsCollection = getItem('javascripts')
+// console.log($scope.test)
 }
 
-angular.module('app', ['angular-clipboard', 'ngTagsInput'])
-    .controller('mainController', ['$scope', '$http', mainController])
+angular.module('app', ['angular-clipboard', 'ngTagsInput','ngStorage'])
+    .controller('mainController', ['$scope', '$http', '$localStorage', mainController])
 
 // var clipApp = angular.module('clipApp', ['angular-clipboard']);
 
@@ -202,3 +214,14 @@ angular.module('app', ['angular-clipboard', 'ngTagsInput'])
 //         console.error('Error!', err);
 //     };
 // }]);
+
+function setItem(k, v) {
+  var str = JSON.stringify(v)
+  localStorage.setItem(k, str)
+}
+
+function getItem(k) {
+  var j = localStorage.getItem(k)
+  var obj = JSON.parse(j)
+  return obj
+ }
