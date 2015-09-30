@@ -61,7 +61,7 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-12">
-                        <input class="description" type="text" placeholder='description' ng-model='newSnippet.functionality' value="{{newSnippet.functionality}}">
+                        <textarea class="description" type="text" placeholder='description' ng-model='newSnippet.functionality' value="{{newSnippet.functionality}}"></textarea>
                     </div>
                     <tags-input ng-model="newSnippet.tags" add-on-paste="false">
                         <auto-complete source="loadTags($query)"></auto-complete>
@@ -70,7 +70,7 @@
                 </div>
                 <!-- add an input to allow for tagging snippets -->
                 <div class="row">
-                    <div class="col-lg-1 col-lg-offset-6">
+                    <div class="submit">
                         <button ng-click="addSnippet($event)">Submit</button>
                     </div>
                 </div> 
@@ -98,7 +98,9 @@
                         </div>
                         <div ng-repeat="script in defaultJavaScripts | filter:query">
                                 <!-- <li><input type="radio" name="somethign" value="1" ng-model="checkboxSelection"/> {{script.functionality}}</li> -->
-                                <li><div class="selectBox" ng-click='previewSnippet(script); toggle = !toggle' ng-class="{'activeSnippet' : toggle}" ng-model="checkboxSelection"></div> {{script.functionality}}</li>
+                                <li><div class="selectBox" ng-click='previewSnippet(script); script.toggle = !script.toggle' ng-class="{'activeSnippet' : script.toggle}" ng-model="checkboxSelection"></div> {{script.functionality}}
+                                    <div class="tagRender"><span ng-repeat="tag in script.tags">{{tag.text}}</span></div>
+                                </li>
                         </div>
                     </div>
                 </div>
@@ -126,23 +128,25 @@
                         <div class="block col-lg-12">block</div>
                     </div>
                     <div class="row col-lg-offset-1 col-lg-10  input-group changethisone">
-                        <input type="text"  class="form-control" placeholder="search your vault"/>
+                        <input ng-model='search' type="text"  class="form-control" placeholder="search your vault"/>
                         <span class="input-group-addon">
                             <i class="glyphicon glyphicon-search"></i>
                         </span>
                     </div>
-                       <div ng-repeat="script in userCollection">
+                       <div ng-repeat="script in userCollection | filter:search">
                                <!-- <li><input type="radio" name="somethign" value="1" ng-model="checkboxSelection"/> {{script.functionality}}</li> -->
                                <li><div class="selectBox" ng-click='previewSnippet(script); toggle = !toggle' ng-class="{'activeSnippet' : toggle}" ng-model="checkboxSelection"></div> {{script.functionality}}</li>
                        </div> 
             
                 </div>
                 <div class="col-lg-6">
-                    <div class="snippet-preview">Dashboard
-                    </div>
+                    <!-- <div class="snippet-preview">Dashboard
+                    </div> -->
+                    <div class="snippet-preview" ng-model='textToCopy.snippet'>{{textToCopy.snippet}}</div>
+
                     <div class="row">
                         <div class="action col-lg-2 col-lg-offset-3"><span class='glyphicon glyphicon-envelope envelope'></span></div>
-                        <div class="action col-lg-2 col-lg-offset-2"><span class='glyphicon glyphicon-download download'></span></div>
+                        <div class="action col-lg-2 col-lg-offset-2"><span clipboard text="textToCopy.snippet" on-copied="success()" on-error="fail(err)" class='glyphicon glyphicon-download download'></span></div>
 
 
                     </div>

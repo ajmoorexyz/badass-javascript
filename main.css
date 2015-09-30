@@ -12,6 +12,18 @@ li {
 	list-style-type: none;
 	margin-top: 15px;
 	margin-left: 10px;
+	border-bottom: 1px solid black;
+}
+
+.tagRender {
+	margin-left: 30px;
+}
+
+.tagRender span {
+	display: inline-block;
+	margin: 5px;
+	padding: 5px;
+	background-color: lightblue;
 }
 
 .block {
@@ -59,7 +71,7 @@ li {
 	background-color: white;
 	width: 75%;
 	margin: 0px 0 0 10%;
-	height: 75vh;
+	height: 400px;
 	position: fixed;
 	top: 150px;
 	padding-top: 50px;
@@ -67,8 +79,9 @@ li {
 
 .tags {
 	clear: left;
-	width: 90%;
-	margin-left: 5%;
+	width: 700px;
+	margin: 0 auto;
+	/*margin-left: 5%;*/
 }
 
 .left {
@@ -93,6 +106,8 @@ button {
 	background-color: greenyellow;
 	padding: 10px;
 	font-size: 24px;
+	display: block;
+	margin: 0 auto;
 }
 
 .collectionContent {

@@ -28,8 +28,17 @@ var mainController = function($scope, $http){
         $scope.submissionView = false
         $scope.collectionView = true
         $scope.defaultDisplay = true
+        $scope.newSnippet = {
+          snippet         : '',
+          functionality   : '',
+          tags            : [
+                { text: 'JavaScript' },
+                { text: 'OOP' },
+                { text: 'Functional Programming' },
+              ],
+            }
     }
-    $scope.javascriptsCollection
+    $scope.javascriptsCollection = []
     $scope.userCollection = []
 
     // $scope.submissionFunction =function() {
@@ -40,7 +49,7 @@ var mainController = function($scope, $http){
     $scope.addSnippet = function(e) {
       e.preventDefault()
       console.log('addSnippet is firing')
-      $scope.javascriptsCollectio.push($scope.newSnippet)
+      $scope.javascriptsCollection.push($scope.newSnippet)
       console.log($scope.javascriptsCollection)
       
         // logic to prevent empty objects from being added to javascripts
@@ -64,17 +73,22 @@ var mainController = function($scope, $http){
     $scope.newSnippet = {
       snippet         : '',
       functionality   : '',
-        tags            : [
+      toggle          : false,
+      tags            : [
             { text: 'JavaScript' },
             { text: 'OOP' },
             { text: 'Functional Programming' },
           ],
         }
-    $scope.toggle = false
+    // $scope.toggle = false
     $scope.textToCopy = "Hello Boulder!";
 
     $scope.previewSnippet = function(script) {
       console.log(script)
+      for (var i = 0; i < $scope.defaultJavaScripts.length; i++) {
+        $scope.defaultJavaScripts[i].toggle = false
+      };
+      // $scope.toggle = !$scope.toggle
       $scope.activeSnippet = true
       $scope.textToCopy = script
     }
@@ -113,53 +127,61 @@ var mainController = function($scope, $http){
   {
     snippet       : "console.log('jim')",
     functionality : "logs the string literal 'jim'.",
-    tags          : []
+    tags          : [{ text: 'JavaScript' },
+            { text: 'OOP' },
+            { text: 'Functional Programming' },]
   },
   {
     snippet       : "var name = 'Alex'",
     functionality : "assigns the variable name a value of 'Alex'",
-    tags          : []
+    tags          : [{ text: 'JavaScript' },
+            { text: 'OOP' },
+            { text: 'Functional Programming' },]
   },
   {
     snippet       : "console.log(Math.floor(Math.random() * 10))",
     functionality : "returns a random number between 1 and 10",
-    tags          : []
+    tags          : [{ text: 'JavaScript' },
+            { text: 'OOP' },
+            { text: 'Functional Programming' },]
   },
   {
     snippet       : "console.log(this)",
     functionality : "logs the value of this in it's current state.",
-    tags          : []
+    tags          : [{ text: 'JavaScript' },
+            { text: 'OOP' },
+            { text: 'Functional Programming' },]
   },
-  {
-    snippet       : "var nameless = function(a) { console.log(arguments); return a}",
-    functionality : "example of logging arguments passed to a function",
-    tags          : []
-  },
-  {
-    snippet       : "console.log(2 + 3)",
-    functionality : "JavaScript can do math for you.",
-    tags          : []
-  },
-  {
-    snippet       : "console.log(window)",
-    functionality : "logs the window Object.",
-    tags          : []
-  },
-  {
-    snippet       : "console.log('foo')",
-    functionality : "logs the string literal 'jim'.",
-    tags          : []
-  },
-  {
-    snippet       : "console.log(fixBuzz())",
-    functionality : "logs the return value of fixBuzz",
-    tags          : []
-  },
-  {
-    snippet       : "console.log('Hello World')",
-    functionality : "For good measure.",
-    tags          : []
-  },
+  // {
+  //   snippet       : "var nameless = function(a) { console.log(arguments); return a}",
+  //   functionality : "example of logging arguments passed to a function",
+  //   tags          : []
+  // },
+  // {
+  //   snippet       : "console.log(2 + 3)",
+  //   functionality : "JavaScript can do math for you.",
+  //   tags          : []
+  // },
+  // {
+  //   snippet       : "console.log(window)",
+  //   functionality : "logs the window Object.",
+  //   tags          : []
+  // },
+  // {
+  //   snippet       : "console.log('foo')",
+  //   functionality : "logs the string literal 'jim'.",
+  //   tags          : []
+  // },
+  // {
+  //   snippet       : "console.log(fixBuzz())",
+  //   functionality : "logs the return value of fixBuzz",
+  //   tags          : []
+  // },
+  // {
+  //   snippet       : "console.log('Hello World')",
+  //   functionality : "For good measure.",
+  //   tags          : []
+  // },
 ]
 
 }
