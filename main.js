@@ -100,8 +100,10 @@ var mainController = function($scope, $http, $localStorage){
     }
 
     $scope.addToUserCollection = function(script) {
-      $scope.userCollection.push(script)
-      console.log($scope.userCollection)
+      // $scope.userCollection.push(script)
+     $localStorage.u.push(script);
+
+      // console.log($scope.userCollection)
     }
 
     $scope.success = function () {
@@ -191,7 +193,8 @@ var mainController = function($scope, $http, $localStorage){
   // },
 ]
 $scope.$storage = $localStorage.$default({
-  o : $scope.defaultJavaScripts
+  o : $scope.defaultJavaScripts,
+  u : []
 })
 // setItem('javascripts', $scope.defaultJavaScripts)
 // $scope.javascriptsCollection = getItem('javascripts')
