@@ -142,7 +142,7 @@
                     </div>
                        <div ng-repeat="script in $storage.u | filter:search">
                                <!-- <li><input type="radio" name="somethign" value="1" ng-model="checkboxSelection"/> {{script.functionality}}</li> -->
-                               <li><div class="selectBox" ng-click='previewSnippet(script); toggle = !toggle' ng-class="{'activeSnippet' : toggle}" ng-model="checkboxSelection"></div> {{script.functionality}}
+                               <li><div class="selectBox" ng-click='previewUserSnippet(script); script.toggle = !script.toggle' ng-class="{'activeSnippet' : script.toggle}" ng-model="checkboxSelection"></div> {{script.functionality}}
                                 <div class="tagRender"><span ng-repeat="tag in script.tags">{{tag.text}}</span></div>
                                </li>
                        </div> 

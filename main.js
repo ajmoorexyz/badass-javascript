@@ -14,6 +14,7 @@ var mainController = function($scope, $http, $localStorage){
     	$scope.collectionView = false
     	$scope.submissionView = true
     	$scope.defaultDisplay = true
+       
     }
 
     $scope.exitFunction = function() {
@@ -91,8 +92,18 @@ var mainController = function($scope, $http, $localStorage){
 
     $scope.previewSnippet = function(script) {
       console.log(script)
-      for (var i = 0; i < $scope.defaultJavaScripts.length; i++) {
-        $scope.defaultJavaScripts[i].toggle = false
+      for (var i = 0; i < $localStorage.o.length; i++) {
+        $localStorage.o[i].toggle = false
+      };
+      // $scope.toggle = !$scope.toggle
+      $scope.activeSnippet = true
+      $scope.textToCopy = script
+    }
+    // user collectionView
+    $scope.previewUserSnippet = function(script) {
+      console.log(script)
+      for (var i = 0; i < $localStorage.u.length; i++) {
+        $localStorage.u[i].toggle = false
       };
       // $scope.toggle = !$scope.toggle
       $scope.activeSnippet = true
