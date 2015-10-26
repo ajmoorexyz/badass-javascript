@@ -1,0 +1,27 @@
+{
+  "name": "badass-javascript",
+  "version": "1.0.0",
+  "description": "Bad Ass JavaScript",
+  "main": "app.js",
+  "dependencies": {
+    "angular": "^1.4.6",
+    "angular-clipboard": "^1.1.0",
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3",
+    "mongoose": "^4.2.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/truckfondue/badass-javascript.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/truckfondue/badass-javascript/issues"
+  },
+  "homepage": "https://github.com/truckfondue/badass-javascript#readme"
+}
